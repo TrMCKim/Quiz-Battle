@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Quiz Battle</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- KaTeX (수식) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="window.__katexReady=true" crossorigin="anonymous"></script>
+  <!-- bcryptjs (관리자 PW 해시 검증) -->
+  <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/bCrypt.min.js"></script>
+</head>
+<body>
+  <!-- 윤리 가이드 오버레이 -->
+  <div id="ethics-overlay">
+    <div class="ethics-box">
+      <div class="ethics-img-wrap">
+        <img id="ethics-img"
+          src="/assets/윤리가이드.png"
+          onerror="this.src='https://images.wrks.ai/dalle/aTSqa92hXSOd0ICw0Rx3rpbAIrHLVkssw1xoMkWt.png'"
+          alt="AI 윤리 가이드">
+      </div>
+      <p class="ethics-statement">나는 윤리 가이드 내용을 빠짐없이 읽었고 이 내용을 준수하겠습니다.</p>
+      <button id="ethics-agree-btn" class="btn btn-primary btn-xl">동의합니다</button>
+    </div>
+  </div>
+
+  <!-- 앱 컨테이너 -->
+  <div id="app" class="hidden"></div>
+
+  <!-- 모달 오버레이 -->
+  <div id="modal-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close-btn" aria-label="닫기">×</button>
+      <div id="modal-content" class="modal-content-body"></div>
+    </div>
+  </div>
+
+  <!-- 팝업 (소형 확인용) -->
+  <div id="popup-overlay" class="popup-overlay hidden">
+    <div class="popup-box">
+      <p id="popup-msg"></p>
+      <div class="popup-actions">
+        <button id="popup-confirm" class="btn btn-primary">확인</button>
+        <button id="popup-cancel" class="btn btn-ghost">취소</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 토스트 -->
+  <div id="toast" class="toast hidden" role="alert"></div>
+
+  <!-- 공통 Footer -->
+  <footer id="main-footer" class="main-footer hidden">
+    <div class="footer-inner">
+      <span>© 2026 Quiz Battle. All rights reserved.</span>
+      <span>
+        <button class="footer-link" id="footer-terms-btn">이용약관</button>
+        <span class="footer-sep">|</span>
+        <button class="footer-link" id="footer-privacy-btn">개인정보처리방침</button>
+      </span>
+      <span>개인정보책임자: 김문창 교사 (고척고등학교) | 문의: 02-1234-5678</span>
+    </div>
+  </footer>
+
+  <!-- Firebase SDK (compat v9) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+
+  <!-- App -->
+  <script src="/js/config.js"></script>
+  <script src="/js/state.js"></script>
+  <script src="/js/db.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/screens/login.js"></script>
+  <script src="/js/screens/student-wait.js"></script>
+  <script src="/js/screens/student-quiz.js"></script>
+  <script src="/js/screens/student-result.js"></script>
+  <script src="/js/screens/admin-wait.js"></script>
+  <script src="/js/screens/admin-db.js"></script>
+  <script src="/js/screens/admin-add.js"></script>
+  <script src="/js/screens/admin-progress.js"></script>
+  <script src="/js/screens/admin-result.js"></script>
+  <script src="/js/router.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
